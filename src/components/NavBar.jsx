@@ -1,33 +1,24 @@
 import React from "react";
 import CartWidget from "./CartWidget";
+import FiltroCategorias from './FiltroCategorias';
 
-const NavBar = () => {    
+const NavBar = ({productos, refrescarProductosFiltrados}) => {    
     return (
-        <nav className="navbar bg-body-tertiary navbar-dark bg-dark">
-            <div className="container-fluid">
-                <h3 className="navbar-brand titulo">LA JARRA LOCA</h3>
+        <nav className="navbar bg-body-tertiary navbar-dark bg-dark navegador">
+            <div className="container-fluid contenedor">
+                <a className="navbar-brand titulo" href="/">LA JARRA LOCA</a>
+    
+                <div className="busqueda">
+                    <input id="resultadoBuscar" className="form-control me-2 inputBusqueda" type="search" placeholder="Inserte su bebida" aria-label="Search"/>
+                    <button className="btn btn-outline-success">Buscar</button>
+                </div>
+                <ul>
+                    <FiltroCategorias productos={productos} refrescarProductosFiltrados={refrescarProductosFiltrados}/>
+                </ul>
+                <li>
+                    <CartWidget/>
+                </li>
             </div>
-            <div className="text-white buttonRadio">
-                <input type="radio" id="category0" name="category" value="Todas las bebidas"  />
-                <label htmlFor="category0">Todas las bebidas</label>
-
-                <input type="radio" id="category1" name="category" value="Con alcohol" />
-                <label htmlFor="category1">Con alcohol</label>
-
-                <input type="radio" id="category2" name="category" value="Sin alcohol" />
-                <label htmlFor="category2">Sin alcohol</label>          
-
-            </div>
-            <ul className="ordenaStyle">
-                <select className="selectOrdenaStyle" name="" id="">
-                    <option>Ordenar bebidas por precio</option>
-                    <option value={1}>Mayor precio</option>
-                    <option value={2}>Menor precio</option>
-                </select>
-            </ul>
-            <li>
-                <CartWidget/>
-            </li>
         </nav>
     )
 }
