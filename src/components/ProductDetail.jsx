@@ -25,7 +25,7 @@ export const ProductDetail = ({productos}) => {
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ea voluptate suscipit totam assumenda quidem corrupti consectetur repellat reprehenderit velit itaque illo, eveniet delectus cum repellendus expedita, eos magni voluptates!</p>
             <ButtonContador valorInicial={0}/>
-            <button id= {`agregarAlCarro${productodetail.id}`} className="btn btn-outline-success buttonCarrito">Agregar al carrito</button>
+            <button id= {`agregarAlCarro${productodetail.id}`} className="btn btn-outline-success w-100 buttonCarrito">Agregar al carrito</button>
 
 
         </div>

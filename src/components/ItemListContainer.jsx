@@ -9,7 +9,7 @@ const ItemListContainer = ({text, productos}) => {
 
     return (
         <div>
-            <h1 className="tituloPrincipal"> {text}</h1>
+            <h1 className="tituloPrincipal mt-2"> {text}</h1>
 
             <div className="row justify-content-center">
                 {
