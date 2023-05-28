@@ -1,11 +1,47 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import { ProductCard } from './ProductCard';
 
 const ItemListContainer = ({text, productos}) => {
+    const params= useParams()
+    const [productosFilt, setProductosFilt] = useState([]);
     
     useEffect(() => {
-        console.log(productos);
-    }, [productos]);
+        setProductosFilt(productos);
+        //console.log(params)
+    }, []);
+
+    useEffect(() => {
+        setProductosFilt(productos);
+        //console.log(productosFilt)
+    }, [productos]); 
+
+    useEffect(() => {
+        
+        if(params.idCategory !== undefined)
+        {
+            productos = productos.filter((p) => {
+                if(params.idCategory == 0)
+                    return p;
+                if(params.idCategory == 1 && p.tieneAlcohol == true) //con alcohol
+                    return p;
+                if(params.idCategory == 2 && p.tieneAlcohol == false) //sin alcohol
+                    return p;
+            });
+        }
+        if(params.valorBusqueda !== undefined)
+        {
+            productos = productos.filter((p) => {
+                if(params.valorBusqueda == p.nombre)
+                    return p;
+            });
+        }
+
+        setProductosFilt(productos);
+        //console.log(productosFilt)
+
+    }, [params.idCategory, params.valorBusqueda, productos]);
+
 
     return (
         <div>
@@ -13,7 +49,18 @@ const ItemListContainer = ({text, productos}) => {
 
             <div className="row justify-content-center">
                 {
+                productosFilt.length == 0 //solo la primera vez que se renderiza
+                ?
                 productos.map((producto)=>{
+                    return (
+                        <ProductCard
+                            key={producto.id}
+                            detalle={producto}
+                        />
+                    );
+                }) 
+                :
+                productosFilt.map((producto)=>{
                     return (
                         <ProductCard
                             key={producto.id}

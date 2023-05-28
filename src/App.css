@@ -88,3 +88,17 @@
   margin-bottom: 2px;
 }
 
+.conteinerCarrito{
+  width: 100rem;
+  height: 100rem;
+  display: flex;
+  justify-content: center;
+}
+
+.carrito{
+  width: 80rem;
+  height: auto;
+}
+.h1carrito{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

@@ -3,26 +3,29 @@ import { useState } from 'react'
 import { TituloContador } from './TituloContador'
 import { Button } from './Button'
 
-export const ButtonContador = ({valorInicial}) => {
+export const ButtonContador = ({valorInicial, setCantidad}) => {
     const [contador, setContador] = useState(valorInicial)
 
     const aumentaContador = (n) => {
-        if(contador <= 4)
-        setContador(contador + n)
+        if(contador <= 4){
+            setContador(contador + n);
+            setCantidad(contador + n);
+        }
     }
  
     const restaContador = (n) => {
         if(contador > 0){
-        setContador(contador - n)
-    }
+            setContador(contador - n);
+            setCantidad(contador - n);
+        }
     }
  
     return (
     <div>
-        <TituloContador
+        {/* <TituloContador
         contador={5}
         text= {"Stock disponible"}
-        />
+        /> */}
         <div className='divButtonContador'>
             <Button className='elemtentosDivContador'
             cambiaContador={()=>restaContador(1)}
