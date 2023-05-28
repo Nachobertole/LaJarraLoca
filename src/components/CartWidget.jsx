@@ -61,8 +61,6 @@ export const CartWidget = ({productos, getFirestore, collection, addDoc }) => {
             setRealizarCompraActiva(false);
     }
 
-    // const prodListos = useMemo(() => productos);
-
     useEffect(() => {
         let currentListadoProductos = localStorage.getItem("productos");
         if(currentListadoProductos == null)
@@ -79,7 +77,6 @@ export const CartWidget = ({productos, getFirestore, collection, addDoc }) => {
         });
         console.log(prodEnCarrAux)
         const precioTotal = prodEnCarrAux.reduce((acc, producto) => acc + producto.precio, 0)
-        //console.log(precioTotal)
         setproductosEnCarrito(prodEnCarrAux);
         setPrecioTotal(precioTotal)
 
@@ -108,26 +105,21 @@ export const CartWidget = ({productos, getFirestore, collection, addDoc }) => {
             setErrorMensaje('');
 
             try {
-                // Aquí puedes construir el objeto de la orden de compra con los datos necesarios
+
                 const orderData = {
                   nombre: nombre,
                   apellido: apellido,
                   telefono: telefono,
                   email: email,
                   preciototal: precioTotal,
-
-                  // Agrega los datos de la orden de compra
-                  // Ejemplo: productName, quantity, totalPrice, etc.
                 };
-            
-                
+                           
                 const db = getFirestore()
                 await addDoc(collection(db, 'orders'), orderData)
             
-                // La orden de compra se registró exitosamente
                 console.log('Orden de compra registrada');
             } catch (error) {
-                // Ocurrió un error al registrar la orden de compra
+
                 console.error('Error al registrar la orden de compra:', error);
             }
             

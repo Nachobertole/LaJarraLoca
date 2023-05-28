@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import { TituloContador } from './TituloContador'
 import { Button } from './Button'
 
 export const ButtonContador = ({valorInicial, setCantidad}) => {
@@ -22,10 +21,6 @@ export const ButtonContador = ({valorInicial, setCantidad}) => {
  
     return (
     <div>
-        {/* <TituloContador
-        contador={5}
-        text= {"Stock disponible"}
-        /> */}
         <div className='divButtonContador'>
             <Button className='elemtentosDivContador'
             cambiaContador={()=>restaContador(1)}

@@ -8,12 +8,10 @@ const ItemListContainer = ({text, productos}) => {
     
     useEffect(() => {
         setProductosFilt(productos);
-        //console.log(params)
     }, []);
 
     useEffect(() => {
         setProductosFilt(productos);
-        //console.log(productosFilt)
     }, [productos]); 
 
     useEffect(() => {
@@ -38,7 +36,6 @@ const ItemListContainer = ({text, productos}) => {
         }
 
         setProductosFilt(productos);
-        //console.log(productosFilt)
 
     }, [params.idCategory, params.valorBusqueda, productos]);
 
@@ -49,7 +46,7 @@ const ItemListContainer = ({text, productos}) => {
 
             <div className="row justify-content-center">
                 {
-                productosFilt.length == 0 //solo la primera vez que se renderiza
+                productosFilt.length == 0 
                 ?
                 productos.map((producto)=>{
                     return (

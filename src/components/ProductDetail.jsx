@@ -26,8 +26,6 @@ export const ProductDetail = ({productos}) => {
       setProductoListo(true);
     }, (1500));
 
-    //console.log(productodetail2)
-    console.log(localStorage.getItem("productos"));
   });
 
   const handleAgregarCarrito = (idProducto) => {
