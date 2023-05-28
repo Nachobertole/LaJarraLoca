@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 
 
 
+
 export const CartWidget = ({productos, getFirestore, collection, addDoc }) => {
 
     const [productosEnCarrito, setproductosEnCarrito] = useState([]);

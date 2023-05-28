@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { ButtonContador } from './ButtonContador';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -38,7 +40,7 @@ export const ProductDetail = ({productos}) => {
     auxListado.push([idProducto, cantidad])
 
     localStorage.setItem('productos', JSON.stringify(auxListado));
-
+    toast.success('¡Su producto ha sido agregado al carrito!')
 
   }
 
@@ -53,7 +55,8 @@ export const ProductDetail = ({productos}) => {
 
                 <p>{`${productodetail.desc}`}</p>
                 <ButtonContador valorInicial={0} setCantidad={setCantidad}/>
-                <button onClick={() => handleAgregarCarrito(productodetail.id)} className="btn btn-outline-success w-100 buttonCarrito">Agregar al carrito</button>
+                <button onClick={() => handleAgregarCarrito(productodetail.id)} className="btn btn-outline-success w-100 buttonCarrito">Agregar al carrito
+                <ToastContainer autoClose={800}/></button>
             </div>
         </div>
         :
