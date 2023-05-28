@@ -122,7 +122,7 @@ export const CartWidget = ({productos, getFirestore, collection, addDoc }) => {
             
                 
                 const db = getFirestore()
-                //await addDoc(collection(db, 'orders'), orderData)
+                await addDoc(collection(db, 'orders'), orderData)
             
                 // La orden de compra se registró exitosamente
                 console.log('Orden de compra registrada');
