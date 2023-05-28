@@ -1,8 +1,7 @@
 import React, {useEffect, useState, useMemo} from 'react'
 import { ProductCardMin } from './ProductCardMin';
 import { initializeApp } from "firebase/app";
-import { toast, ToastContainer } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
+
 
 
 export const CartWidget = ({productos, getFirestore, collection, addDoc }) => {
@@ -61,7 +60,7 @@ export const CartWidget = ({productos, getFirestore, collection, addDoc }) => {
             setRealizarCompraActiva(false);
     }
 
-    const prodListos = useMemo(() => productos);
+    // const prodListos = useMemo(() => productos);
 
     useEffect(() => {
         let currentListadoProductos = localStorage.getItem("productos");
@@ -132,11 +131,7 @@ export const CartWidget = ({productos, getFirestore, collection, addDoc }) => {
             }
             
             setCompraLista(true);
-            toast.success("Orden de compra registrada", {
-                position: toast.POSITION.TOP_CENTER
-            });
-
-            //vacias el local storage
+            localStorage.clear("productos")
 
             
         }
@@ -206,7 +201,7 @@ export const CartWidget = ({productos, getFirestore, collection, addDoc }) => {
             </div>
         :
         productosEnCarrito.length == 0 ?
-            <div>Carrito vacio</div>
+            <h3 className='mt-5'>No ha ingresado ningun producto al carrito</h3>
         :
             <div className="text-center mt-5">
                 <div className="spinner-grow" role="status">

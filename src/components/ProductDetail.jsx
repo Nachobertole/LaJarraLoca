@@ -51,7 +51,7 @@ export const ProductDetail = ({productos}) => {
                 <p className="card-title tituloProductDetail">{`${productodetail.nombre}`}</p>
                 <p className="">Precio: ${`${productodetail.precio}`}</p>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ea voluptate suscipit totam assumenda quidem corrupti consectetur repellat reprehenderit velit itaque illo, eveniet delectus cum repellendus expedita, eos magni voluptates!</p>
+                <p>{`${productodetail.desc}`}</p>
                 <ButtonContador valorInicial={0} setCantidad={setCantidad}/>
                 <button onClick={() => handleAgregarCarrito(productodetail.id)} className="btn btn-outline-success w-100 buttonCarrito">Agregar al carrito</button>
             </div>
